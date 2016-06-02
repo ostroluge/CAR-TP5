@@ -1,16 +1,25 @@
 package network;
 
 import java.rmi.Naming;
+import java.util.ArrayList;
+import java.util.List;
 
-import service.impl.NoeudImpl;
+import service.Noeud;
 
 public class Serveur {
 
-public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {
 		
-		NoeudImpl obj = new NoeudImpl();
+		Noeud noeudDistant = (Noeud) Naming.lookup("//localhost/Node");
 		
-		Naming.rebind("Node", obj);
-		System.out.println("Le serveur Java RMI est prêt...");
+		List<Noeud> nodes = new ArrayList<>();
+		
+		nodes.clear();
+		
+		nodes = noeudDistant.getLesNoeuds();
+		
+		for (Noeud noeud : nodes) {
+			System.out.println(noeud);
+		}
 	}
 }
