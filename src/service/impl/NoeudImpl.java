@@ -12,7 +12,7 @@ public class NoeudImpl extends UnicastRemoteObject implements Noeud {
 		super();
 	}
 
-	public String lister() throws RemoteException {
+	public String[] lister() throws RemoteException {
 		return null;
 	}
 

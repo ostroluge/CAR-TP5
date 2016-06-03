@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface Noeud extends Remote {
 
-	String lister() throws RemoteException;
+	String[] lister() throws RemoteException;
 	
 	byte[] getContenu(String nomFichier) throws RemoteException;
 	
